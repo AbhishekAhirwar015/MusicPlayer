@@ -1,5 +1,3 @@
-import 'package:audioplayers/src/source.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:demo/models/music.dart';
 
 class MusicOperations {

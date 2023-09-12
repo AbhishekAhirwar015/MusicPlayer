@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
     setState(() {});
     Size deviceSize = MediaQuery.of(context).size;
     return AnimatedContainer(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 1000),
       color: Colors.blueGrey,
       width: deviceSize.width,
       height: 50,
@@ -72,7 +72,6 @@ class _MyAppState extends State<MyApp> {
   // UI Design Code Goes inside Build
   @override
   Widget build(BuildContext context) {
-    print("Lets Build it");
     return Scaffold(
       body: Tabs[currentTabIndex],
       backgroundColor: Colors.black,
@@ -83,23 +82,35 @@ class _MyAppState extends State<MyApp> {
           BottomNavigationBar(
             currentIndex: currentTabIndex,
             onTap: (currentIndex) {
-              print("Current Index is $currentIndex");
-              currentTabIndex = currentIndex;
-              setState(() {}); // re-render
+              setState(() {
+                currentTabIndex = currentIndex;
+              }); // re-render
             },
             selectedLabelStyle: TextStyle(color: Colors.white),
             selectedItemColor: Colors.white,
             backgroundColor: Colors.black45,
-            items: [
+            items: const [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home, color: Colors.white), label: 'Home'),
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.white,
+                ),
+                label: 'Home',
+              ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.search, color: Colors.white),
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
                 label: 'Search',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.library_books, color: Colors.white),
-                  label: 'Your Library')
+                icon: Icon(
+                  Icons.library_books,
+                  color: Colors.white,
+                ),
+                label: 'Your Library',
+              ),
             ],
           )
         ],
